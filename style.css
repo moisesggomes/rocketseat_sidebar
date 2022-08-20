@@ -96,6 +96,7 @@ aside nav #options .option#search {
     background-color: var(--light-green);
 }
 aside nav #options .option#search input {
+    min-width: 15.9rem;
     border: none;
 
     background-color: transparent;
