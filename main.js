@@ -8,7 +8,7 @@ window.onload = () => {
     search.addEventListener("click", () => {
         if (aside.classList.contains("expanded") == false) {
             aside.classList.add("expanded")
-            searchInput.focus()
         }
+        searchInput.focus()
     })
 }
