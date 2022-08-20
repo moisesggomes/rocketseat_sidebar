@@ -86,6 +86,8 @@ aside nav #options .option {
 aside.expanded nav #options .option {
     width: 22.2rem;
     height: 5.092rem;
+
+    transition: background-color 200ms 0s linear;
 }
 aside nav #options .option + .option:hover {
     background-color: var(--light-green);
