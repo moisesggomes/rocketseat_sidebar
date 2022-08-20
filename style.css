@@ -71,6 +71,7 @@ aside #options {
     margin-inline: 1.4rem;
 }
 aside nav #options .option {
+    height: 5.092rem;
     margin-bottom: .8rem;
     padding: 1.3rem;
     border-radius: 1.2rem;
@@ -82,12 +83,11 @@ aside nav #options .option {
     font-weight: 500;
 
     cursor: pointer;
+
+    transition: background-color 200ms 0s linear;
 }
 aside.expanded nav #options .option {
     width: 22.2rem;
-    height: 5.092rem;
-
-    transition: background-color 200ms 0s linear;
 }
 aside nav #options .option + .option:hover {
     background-color: var(--light-green);
@@ -155,7 +155,7 @@ aside[class=""] {
     width: 7.8rem;
 }
 aside[class=""] #top {
-    margin: 2.6rem auto;
+    margin: 2.6rem auto 1.9rem;
 }
 aside[class=""] #top a {
     display: none;
