@@ -43,14 +43,16 @@ aside.expanded #top {
     justify-content: space-between;
     align-items: center;
 }
-aside.expanded #top a {
+aside #top a,
+aside #top button {
     line-height: 0;
+
+    display: flex;
+    align-items: center;
 }
 aside #top button {
     background: transparent;
     border: none;
-
-    line-height: 0;
 
     cursor: pointer;
 }
@@ -185,70 +187,63 @@ main h1 {
     margin-left: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /*=====================RESET======================*/
-    * {
-        margin: 0;
-        padding: 0;
+    body {
+        flex-direction: column;
     }
-    aside {
-        width: initial;
-        min-height: initial;
+    aside[class] {
+        width: 100vw;
+        height: 7.4rem;
+        min-height: unset;
+
+        position: absolute;
+        top: 0;
+        left: 0;
 
         transition: height 200ms 0s linear;
     }
-    aside[class=""] {
-        min-width: 100vw;
-    }
-    aside.expanded #top,
-    aside[class=""] #top {
+    aside[class] #top {
         margin: 0;
-        padding: 0;
+        padding: 2.4rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     aside[class=""] #top a {
-        display: initial;
+        display: block;
     }
     aside nav {
         display: none;
     }
-
-    body {
-        min-width: 100vw;
-
-        flex-direction: column;
+    main {
+        margin-top: 7.4rem;
     }
 
     aside.expanded {
-        min-height: 100vh;
-
-        gap: 2.6rem;
+        height: 100vh;
     }
-    aside, aside.expanded {
-        height: auto;
-        padding: 2.6rem 2.9rem;
-    }
-    aside #top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
-        line-height: 0;
-    }
-    aside.expanded #top {
-        margin-bottom: 2.6rem;
-    }
-    /* nav {
-        min-width: fit-content;
-    } */
     aside.expanded nav {
         display: flex;
+        gap: 0;
+    }
+    aside.expanded nav #options {
+        margin-inline: 0;
+        padding: 3.2rem 1.4rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
     }
     aside.expanded nav #options .option {
-        width: 100%;
         margin-inline: auto;
+        padding: 3rem 1.4rem;
     }
-    aside.expanded nav #profile {
-        min-width: fit-content;
-        border-radius: 1.2rem;
+    aside.expanded nav #options .option p {
+        flex-grow: 1;
+
+        text-align: center;
     }
 }
