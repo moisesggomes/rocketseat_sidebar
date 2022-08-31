@@ -33,6 +33,10 @@ aside {
     display: flex;
     flex-direction: column;
 
+    position: fixed;
+    top: 0;
+    left: 0;
+
     transition: width 200ms 0s linear;
 }
 
@@ -179,8 +183,10 @@ aside[class=""] #profile button {
 
 main {
     flex-grow: 1;
-
+    
     background-color: var(--light-grey);
+
+    transition: padding-left 200ms 0s linear;
 }
 main h1 {
     margin-top: 1.8rem;
@@ -197,7 +203,7 @@ main h1 {
         height: 7.4rem;
         min-height: unset;
 
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
 
@@ -219,10 +225,13 @@ main h1 {
     }
     main {
         margin-top: 7.4rem;
+        padding-left: 0;
     }
 
     aside.expanded {
         height: 100vh;
+
+        overflow-y: hidden;
     }
     aside.expanded nav {
         display: flex;
