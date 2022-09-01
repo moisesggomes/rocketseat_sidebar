@@ -6,22 +6,16 @@ window.onload = () => {
 
     expandButton.addEventListener("click", () => {
         aside.classList.toggle("expanded")
-        if (window.screen.width >= 1024) {
+        if (window.screen.width <= 1024) {
             if (aside.classList.contains("expanded")) {
-                document.querySelector("main").style.paddingLeft = "25rem"
+                document.body.style.overflow = "hidden"
             } else {
-                document.querySelector("main").style.paddingLeft = "7.8rem"
-            }
-        } else {
-            if (aside.classList.contains("expanded")) {
-                document.body.style.overflowY = "hidden"
-            } else {
-                document.body.style.overflowY = "initial"
+                document.body.style.overflow = "initial"
             }
         }
     })
     search.addEventListener("click", () => {
-        if (aside.classList.contains("expanded") == false) {
+        if (!aside.classList.contains("expanded")) {
             aside.classList.add("expanded")
         }
         searchInput.focus()

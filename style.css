@@ -54,6 +54,9 @@ aside #top button {
     display: flex;
     align-items: center;
 }
+aside #top a img {
+    height: 2.4rem;
+}
 aside #top button {
     background: transparent;
     border: none;
@@ -161,7 +164,7 @@ aside[class=""] {
     width: 7.8rem;
 }
 aside[class=""] #top {
-    margin: 2.6rem auto 1.9rem;
+    margin: 2.4rem auto 2.6rem;
 }
 aside[class=""] #top a {
     display: none;
@@ -182,15 +185,20 @@ aside[class=""] #profile button {
 }
 
 main {
+    padding: 1.8rem;
+    padding-left: 9.8rem;
     flex-grow: 1;
     
     background-color: var(--light-grey);
 
     transition: padding-left 200ms 0s linear;
 }
-main h1 {
-    margin-top: 1.8rem;
-    margin-left: 2rem;
+main p {
+    text-align: justify;
+}
+aside.expanded + main {
+    padding: 1.8rem;
+    padding-left: 27rem;
 }
 
 @media (max-width: 1024px) {
@@ -225,7 +233,11 @@ main h1 {
     }
     main {
         margin-top: 7.4rem;
+        padding: 1.8rem;
+    }
+    aside.expanded + main {
         padding-left: 0;
+        padding: 1.8rem;
     }
 
     aside.expanded {
