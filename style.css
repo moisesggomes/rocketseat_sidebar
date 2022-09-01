@@ -241,7 +241,7 @@ aside.expanded + main {
     }
 
     aside.expanded {
-        height: 100vh;
+        height: 56.4rem;
 
         overflow-y: hidden;
     }
@@ -251,7 +251,7 @@ aside.expanded + main {
     }
     aside.expanded nav #options {
         margin-inline: 0;
-        padding: 3.2rem 1.4rem;
+        padding: 1.6rem 20%;
 
         display: flex;
         flex-direction: column;
@@ -260,11 +260,29 @@ aside.expanded + main {
     }
     aside.expanded nav #options .option {
         margin-inline: auto;
+        margin-bottom: 0;
+        width: 100%;
         padding: 3rem 1.4rem;
+    }
+    aside.expanded nav #options .option#search {
+        margin-bottom: .8rem;
+    }
+    aside.expanded nav #options .option#search input {
+        min-width: 0;
+        flex-grow: 1;
+    }
+    aside.expanded nav #options .option#search input::placeholder{
+        text-align: center;
     }
     aside.expanded nav #options .option p {
         flex-grow: 1;
 
         text-align: center;
+    }
+}
+
+@media (max-width: 425px) {
+    aside.expanded nav #options {
+        padding-inline: 3.2rem;
     }
 }
