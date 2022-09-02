@@ -6,13 +6,13 @@ window.onload = () => {
 
     expandButton.addEventListener("click", () => {
         aside.classList.toggle("expanded")
-        if (window.screen.width <= 1024) {
-            if (aside.classList.contains("expanded")) {
-                document.body.style.overflow = "hidden"
-            } else {
-                document.body.style.overflow = "initial"
-            }
-        }
+        // if (window.screen.width <= 1024) {
+        //     if (aside.classList.contains("expanded")) {
+        //         document.body.style.overflow = "hidden"
+        //     } else {
+        //         document.body.style.overflow = "initial"
+        //     }
+        // }
     })
     search.addEventListener("click", () => {
         if (!aside.classList.contains("expanded")) {

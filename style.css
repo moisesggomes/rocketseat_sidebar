@@ -12,277 +12,164 @@
     padding: 0;
 
     box-sizing: border-box;
+
+    word-break: break-word;
 }
 body {
     min-height: 100vh;
 
     display: flex;
 
+    color: var(--text-color);
     font-family: Poppins;
     font-size: 1.6rem;
-    color: var(--text-color);
 }
-/*===============EXPANDED===============*/
+/*===============DEFAULT===============*/
 aside {
-    width: 25rem;
-    min-height: 100vh;
-    height: fit-content;
+    height: 100vh;
 
-    background-color: var(--green);
+    font-size: 1.5rem;
 
+    flex-basis: 7.8rem;
     display: flex;
     flex-direction: column;
 
     position: fixed;
     top: 0;
-    left: 0;
 
-    transition: width 200ms 0s linear;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background-color: var(--green);
+
+    transition: flex-basis 200ms 0s linear;
 }
-
-aside.expanded #top {
-    margin: 2.4rem 1.4rem 2.6rem 2.9rem;
+aside #top {
+    padding: 2.4rem;
 
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
-aside #top a,
-aside #top button {
-    line-height: 0;
-
-    display: flex;
-    align-items: center;
-}
-aside #top a img {
+aside #top > * {
     height: 2.4rem;
+
+    display: inline-block;
+
+    cursor: pointer;
 }
-aside #top button {
-    background: transparent;
+aside #top button,
+aside nav #profile button {
     border: none;
 
-    cursor: pointer;
-}
-aside.expanded #top img[alt="logo"],
-aside.expanded #top button:hover {
-    cursor: pointer;
-}
+    background-color: transparent;
 
+    cursor: pointer;
+}
 aside nav {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+aside nav #options {
+    margin-bottom: .8rem;
+    padding-inline: 1.4rem;
 
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-    gap: 2.5rem;
-}
-aside #options {
-    margin-inline: 1.4rem;
+    gap: .8rem;
 }
 aside nav #options .option {
-    height: 5.092rem;
-    margin-bottom: .8rem;
-    padding: 1.3rem;
     border-radius: 1.2rem;
-
+    padding: 1.3rem;
+    
     display: flex;
-    align-items: center;
-
-    font-size: 1.5rem;
-    font-weight: 500;
+    gap: 1.3rem;
 
     cursor: pointer;
 
     transition: background-color 200ms 0s linear;
 }
-aside.expanded nav #options .option {
-    width: 22.2rem;
+aside nav #options .option > * {
+    display: inline-block;
 }
-aside nav #options .option + .option:hover {
+aside nav #options .option#search,
+aside nav #options .option:hover {
     background-color: var(--light-green);
 }
-aside.expanded nav #options .option img {
-    margin-right: 1.3rem;
-}
-aside nav #options .option#search {
-    background-color: var(--light-green);
-}
-aside nav #options .option#search input {
-    min-width: 15.9rem;
-    border: none;
-
-    background-color: transparent;
-    outline: none;
-
-    font-family: inherit;
-    color: inherit;
-    font-size: inherit;
-}
-aside nav #options .option#search input::placeholder {
-    color: inherit;
-}
-
 aside nav #profile {
-    width: 100%;
-    height: 6rem;
-    padding: 0.8rem 1.4rem 0.7rem;
+    display: flex;
 
     background-color: var(--light-green);
 
-    display: flex;
-    align-items: center;
-}
-aside.expanded nav #profile a {
     line-height: 0;
 }
-aside.expanded nav #profile a img {
-    width: 4.5rem;
-    border-radius: 1.2rem;
+/*===============NOT-EXPANDED===============*/
+aside {
+    flex-basis: 7.8rem;
+}
+aside #top a,
+aside nav #options .option#search input,
+aside nav #options .option p,
+aside nav #profile a,
+aside nav #profile div {
+    display: none;
+}
+aside nav #profile {
+    padding: 1.8rem 2.8rem;
+}
+/*===============EXPANDED===============*/
+aside.expanded {
+    flex-basis: 25rem;
+}
+aside.expanded #top a,
+aside.expanded nav #options .option#search input,
+aside.expanded nav #options .option p,
+aside.expanded nav #profile a,
+aside.expanded nav #profile div {
+    display: inline-block;
+}
+aside.expanded nav #options .option#search input {
+    outline: none;
+    border: 0;
+    
+    flex-grow: 1;
+
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+
+    background-color: transparent;
+}
+aside.expanded nav #options .option#search input::placeholder {
+    color: inherit;
+}
+aside.expanded nav #profile {
+    padding: 0.8rem 1.4rem 0.7rem;
+}
+aside.expanded nav #profile * {
+    line-height: 0;
 }
 aside.expanded nav #profile div {
-    padding: 0.8rem 1.4rem 0.7rem;
+    padding: 0.8rem 1.4rem 0 0.7rem;
 
     flex-grow: 1;
 }
 aside.expanded nav #profile div p {
-    width: max-content;
+    line-height: initial;
 }
-aside.expanded nav #profile div p:nth-child(1) {
-    font-size: 1.5rem;
+    aside.expanded nav #profile div p:first-child {
     font-weight: 500;
 }
-aside.expanded nav #profile div p:nth-child(2) {
+aside.expanded nav #profile div p:first-child + p {
     font-size: 1.2rem;
 }
-aside nav #profile button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+aside.expanded nav #profile a img {
+    height: 4.5rem;
 }
-/*===============NOT EXPANDED===============*/
-aside[class=""] {
-    width: 7.8rem;
-}
-aside[class=""] #top {
-    margin: 2.4rem auto 2.6rem;
-}
-aside[class=""] #top a {
-    display: none;
-}
-aside[class=""] #options .option input,
-aside[class=""] #options .option p {
-    display: none;
-}
-aside[class=""] #profile {
-    padding: 1.8rem 2.8rem;
-}
-aside[class=""] #profile a,
-aside[class=""] #profile div {
-    display: none;
-}
-aside[class=""] #profile button {
-    margin-left: auto;
-}
-
-main {
-    padding: 1.8rem;
-    padding-left: 9.8rem;
-    flex-grow: 1;
-    
-    background-color: var(--light-grey);
-
-    transition: padding-left 200ms 0s linear;
-}
-main p {
-    text-align: justify;
-}
-aside.expanded + main {
-    padding: 1.8rem;
-    padding-left: 27rem;
-}
-
 @media (max-width: 1024px) {
-    /*=====================RESET======================*/
-    body {
-        flex-direction: column;
-    }
-    aside[class] {
-        width: 100vw;
-        height: 7.4rem;
-        min-height: unset;
 
-        position: fixed;
-        top: 0;
-        left: 0;
-
-        transition: height 200ms 0s linear;
-    }
-    aside[class] #top {
-        margin: 0;
-        padding: 2.4rem;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    aside[class=""] #top a {
-        display: block;
-    }
-    aside nav {
-        display: none;
-    }
-    main {
-        margin-top: 7.4rem;
-        padding: 1.8rem;
-    }
-    aside.expanded + main {
-        padding-left: 0;
-        padding: 1.8rem;
-    }
-
-    aside.expanded {
-        height: 56.4rem;
-
-        overflow-y: hidden;
-    }
-    aside.expanded nav {
-        display: flex;
-        gap: 0;
-    }
-    aside.expanded nav #options {
-        margin-inline: 0;
-        padding: 1.6rem 20%;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex-grow: 1;
-    }
-    aside.expanded nav #options .option {
-        margin-inline: auto;
-        margin-bottom: 0;
-        width: 100%;
-        padding: 3rem 1.4rem;
-    }
-    aside.expanded nav #options .option#search {
-        margin-bottom: .8rem;
-    }
-    aside.expanded nav #options .option#search input {
-        min-width: 0;
-        flex-grow: 1;
-    }
-    aside.expanded nav #options .option#search input::placeholder{
-        text-align: center;
-    }
-    aside.expanded nav #options .option p {
-        flex-grow: 1;
-
-        text-align: center;
-    }
 }
-
 @media (max-width: 425px) {
-    aside.expanded nav #options {
-        padding-inline: 3.2rem;
-    }
+
 }
